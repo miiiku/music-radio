@@ -1,0 +1,112 @@
+.info-widget {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 360px;
+  height: 120px;
+  user-select: none;
+  top: 30%;
+  left: -60px;
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 20px 20px 60px #2c2e3b, -20px -20px 60px #3c3e4f;
+}
+
+.info-widget .info-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.info-widget .info-list dl {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.info-widget .info-list dt {
+  width: 110px;
+  text-align: right;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.info-widget .info-list dd {
+  padding-left: 20px;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.info-widget #info-cover {
+  width: 80px;
+  height: 80px;
+  border-radius: 14px;
+  margin-right: 20px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.time-widget {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 300px;
+  height: 60px;
+  top: calc(30% + 180px);
+  left: -50px;
+  border-radius: 9px;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 20px 20px 60px #2c2e3b, -20px -20px 60px #3c3e4f;
+}
+
+.time-widget span {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 32px;
+  text-align: center;
+  line-height: 60px;
+  font-weight: bolder;
+  user-select: none;
+}
+
+.time-widget span:nth-child(odd) {
+  flex: 1;
+}
+
+.control-widget {
+  position: absolute;
+  right: -30px;
+  top: 48%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.control-widget .control-btn {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  margin: 0 15px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 5px 5px 15px #2c2e3b, -5px -5px 15px #3c3e4f;
+  transition: all 0.3s ease-out;
+}
+
+.control-widget .control-btn:hover {
+  transform: scale(1.1);
+}
+
+.control-widget .control-btn i {
+  font-size: 32px;
+  font-weight: bolder;
+  color: var(--theme-color);
+}

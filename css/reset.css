@@ -1,0 +1,245 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a,
+abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q,
+s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul,
+li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  font-family: cursive, sans-serif;
+  font-size: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: cursive, sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-size: 14px;
+  line-height: 1;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+a:active, a:hover {
+  outline: 0;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+i, em, dfn {
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "iconfont"; /* Project id 690510 */
+  src: url('//at.alicdn.com/t/font_690510_jq4ykoccir.woff2?t=1621500300300') format('woff2'),
+       url('//at.alicdn.com/t/font_690510_jq4ykoccir.woff?t=1621500300300') format('woff'),
+       url('//at.alicdn.com/t/font_690510_jq4ykoccir.ttf?t=1621500300300') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-play-next:before {
+  content: "\e850";
+}
+
+.icon-play1:before {
+  content: "\e851";
+}
+
+.icon-play-previous:before {
+  content: "\e852";
+}
+
+.icon-1_music80:before {
+  content: "\e6ab";
+}
+
+.icon-music:before {
+  content: "\e6a0";
+}
+
+.icon-MusicEntertainment:before {
+  content: "\e68f";
+}
+
+.icon-music-albums:before {
+  content: "\e652";
+}
+
+.icon-search:before {
+  content: "\e614";
+}
+
+.icon-menu--fill:before {
+  content: "\e866";
+}
+
+.icon-jingtou1:before {
+  content: "\e6a5";
+}
+
+.icon-jiantou3:before {
+  content: "\e624";
+}
+
+.icon-jiantou:before {
+  content: "\e622";
+}
+
+.icon-map:before {
+  content: "\e606";
+}
+
+.icon-close1:before {
+  content: "\e6bf";
+}
+
+.icon-camera1:before {
+  content: "\e61a";
+}
+
+.icon-jingtou:before {
+  content: "\e604";
+}
+
+.icon-iso:before {
+  content: "\e66e";
+}
+
+.icon-guangquan:before {
+  content: "\e603";
+}
+
+.icon-B:before {
+  content: "\e705";
+}
+
+.icon-top1:before {
+  content: "\e625";
+}
+
+.icon-top2:before {
+  content: "\e62c";
+}
+
+.icon-twitter:before {
+  content: "\e8a8";
+}
+
+.icon-email:before {
+  content: "\e648";
+}
+
+.icon-qq:before {
+  content: "\e676";
+}
+
+.icon-github:before {
+  content: "\e602";
+}
+
+.icon-weibo:before {
+  content: "\e882";
+}
+
+.icon-link:before {
+  content: "\e601";
+}
+
+.icon-close:before {
+  content: "\e6df";
+}
+
+.icon-crude:before {
+  content: "\e65a";
+}
+
+.icon-image:before {
+  content: "\e6b4";
+}
+
+.icon-code:before {
+  content: "\e626";
+}
+
+.icon-reply:before {
+  content: "\e717";
+}
+
+.icon-type:before {
+  content: "\e617";
+}
+
+.icon-video:before {
+  content: "\e630";
+}
+
+.icon-photo:before {
+  content: "\e70d";
+}
+
+.icon-see:before {
+  content: "\e637";
+}
+
+.icon-top:before {
+  content: "\e605";
+}
+
+.icon-time:before {
+  content: "\e73a";
+}
+
+.icon-tag:before {
+  content: "\e629";
+}
+
+.icon-play:before {
+  content: "\e600";
+}
+
