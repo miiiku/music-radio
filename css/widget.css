@@ -110,3 +110,21 @@
   font-weight: bolder;
   color: var(--theme-color);
 }
+
+.control-widget .control-btn.animation {
+  animation: zoom 3.5s linear forwards infinite;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1.0) translateZ(0);
+  }
+
+  60% {
+    transform: scale(1.2) translateZ(0);
+  }
+
+  100% {
+    transform: scale(1.0) translateZ(0);
+  }
+}

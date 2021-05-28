@@ -40,24 +40,34 @@ class DomVisual {
       {
         selector: '#playBtn',
         event: {
-          click: () => eventBus.emit('play')
+          click: () => {
+            this.removePlayAnimation()
+            eventBus.emit('play')
+          }
         }
       },
       {
         selector: '#prevBtn',
         event: {
-          click: () => eventBus.emit('prev')
+          click: () => {
+            this.removePlayAnimation()
+            eventBus.emit('prev')
+          }
         }
       },
       {
         selector: '#nextBtn',
         event: {
-          click: () => eventBus.emit('next')
+          click: () => {
+            this.removePlayAnimation()
+            eventBus.emit('next')
+          }
         }
       }
     ]
     this.domContainerSelector = ['#bg', '#info-cover', '#music-lrc', '#setting-wrap']
     
+    this.af = null
     this.bgs = bgs || []
     this.lrcList = []
     this.lrcIndex = 0
@@ -85,6 +95,13 @@ class DomVisual {
         }
       }
     })
+  }
+
+  removePlayAnimation (dom) {
+    let d = dom || this.getControlDom('#playBtn')
+    if (d.classList.contains('animation')) {
+      d.classList.remove('animation')
+    }
   }
 
   handleChange () {
@@ -197,23 +214,28 @@ class DomVisual {
   }
 
   async loadData (url) {
-    let list = []
     if (!url) {
-      list.push([0, '当前歌曲暂无歌词，闭上眼睛静静聆听～'])
-    } else {
-      let result = await fetch(url).catch(error => { console.log(error) }) || {}
-      if (!result.ok) {
-        list.push([0, '加载歌词出错，我也不知道问题出在哪里(⑉･̆-･̆⑉)'])
-      } else {
-        let text = await result.text().catch(error => { console.log(error) })
-        text && text.split('\n').forEach(row => {
-          if (!row.includes('[')) return
-          let chunk = row.replace('[', '').split(']')
-          let times = chunk[0].split(':')
-          list.push([times[0] * 60 + parseFloat(times[1] + ''), chunk[1]])
-        })
-      }
+      this.lrcList = [[0, '当前歌曲暂无歌词，闭上眼睛静静聆听～']]
+      this.initLrcDom()
+      return
     }
+    if (this.af) {
+      this.af.abort()
+      this.af = null
+    }
+    this.af = AbortFetch()
+    let list = [], text = await this.af.fetch(url)
+      .then(result => result.text())
+      .catch(({ name }) => {
+        if (name === 'AbortError') return console.log('cancel')
+        list.push([0, '加载歌词出错，我也不知道问题出在哪里(⑉･̆-･̆⑉)'])
+      })
+    text && text.split('\n').forEach(row => {
+      if (!row.includes('[')) return
+      let chunk = row.replace('[', '').split(']')
+      let times = chunk[0].split(':')
+      list.push([times[0] * 60 + parseFloat(times[1] + ''), chunk[1]])
+    })
     this.lrcList = list
     this.initLrcDom()
   }

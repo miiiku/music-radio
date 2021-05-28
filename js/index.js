@@ -1,35 +1,16 @@
 window.onload = async function () {
-
-  window.eventBus = {
-    events: {},
-    on (event, fn) {
-      if (!this.events[event]) {
-        this.events[event] = []
-      }
-      this.events[event].push(fn)
-    },
-    emit() {
-      let e = this.events[[].shift.call(arguments)]
-      if (!e || e.length < 1) return
-      e.forEach(fn => {
-        fn.apply(this, arguments)
-      })
-    }
-  }
-
-  let result = await fetch('https://qiniu.sukoshi.xyz/cloud-music/song.json')
-
-  if (!result.ok) {
-    console.log(result)
-    return alert('获取歌曲信息失败！')
-  }
-
-  const PLAY_LIST = await result.json()
+  const PLAY_LIST = await AbortFetch()
+    .fetch('https://qiniu.sukoshi.xyz/cloud-music/song.json')
+    .then(result => result.json())
+    .catch(error => {
+      console.log(error)
+    })
+  
+  if (!PLAY_LIST) return alert('获取歌曲信息失败！')
 
   console.log(PLAY_LIST)
 
-  // const music = PLAY_LIST[Math.floor(Math.random() * PLAY_LIST.length)]
-  let i = 0
+  let i = Math.floor(Math.random() * PLAY_LIST.length)
 
   dv = new DomVisual([
     'https://qiniu.sukoshi.xyz/src/images/68135789_p0.jpg',
@@ -40,11 +21,7 @@ window.onload = async function () {
   av.onended = playNext
 
   eventBus.on('play', () => {
-    if (av.source) {
-      av.togglePlay()
-    } else {
-      av.play(PLAY_LIST[i])
-    }
+    av.source ? av.togglePlay() : av.play(PLAY_LIST[i], false)
   })
   eventBus.on('prev', playPrev)
   eventBus.on('next', playNext)
@@ -59,5 +36,41 @@ window.onload = async function () {
     i += 1
     if (i >= PLAY_LIST.length) i = 0
     av.play(PLAY_LIST[i])
+  }
+}
+
+const eventBus = {
+  events: {},
+  on (event, fn) {
+    if (!this.events[event]) {
+      this.events[event] = []
+    }
+    this.events[event].push(fn)
+  },
+  emit() {
+    let e = this.events[[].shift.call(arguments)]
+    if (!e || e.length < 1) return
+    e.forEach(fn => {
+      fn.apply(this, arguments)
+    })
+  }
+}
+
+
+function AbortFetch() {
+  const controller = new AbortController()
+
+  return {
+    abort: controller.abort.bind(controller),
+    fetch: function (url, params = {}) {
+      return new Promise((reslove, reject) => {
+        fetch(url, { signal: controller.signal, ...params }).then(result => {
+          if (result.ok) return reslove(result)
+          throw new Error('Network response was not ok.')
+        }).catch(error => {
+          reject(error)
+        })
+      })
+    }
   }
 }
