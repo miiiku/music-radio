@@ -1,6 +1,6 @@
 window.onload = async function () {
   const PLAY_LIST = await AbortFetch()
-    .fetch('https://qiniu.sukoshi.xyz/cloud-music/song.json')
+    .fetch('https://qiniu.sukoshi.xyz/cloud-music/song.json?' + Date.now())
     .then(result => result.json())
     .catch(error => {
       console.log(error)
