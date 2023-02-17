@@ -1,127 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/index.css">
-  <link rel="stylesheet" href="./css/widget.css">
-  <link rel="stylesheet" href="./css/setting.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap" rel="stylesheet">
-  <title>Cloud Music</title>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>☁️cloud music☁️</title>
 </head>
+
 <body>
-  <div id="setting-wrap">
-    <section>
-      <div class="input-row">
-        <label for="centerX">centerX:</label>
-        <input type="range" min="0" max="1" step="0.1" id="centerX">
-      </div>
-      <div class="input-row">
-        <label for="centerY">centerY:</label>
-        <input type="range" min="0" max="1" step="0.1" id="centerY">
-      </div>
-      <div class="input-row">
-        <label for="lineWidth">lineWidth:</label>
-        <input type="range" min="1" max="8" id="lineWidth">
-      </div>
-      <div class="input-row">
-        <label for="lineSpacing">lineSpacing:</label>
-        <input type="range" min="0" max="8" id="lineSpacing">
-      </div>
-    </section>
-    <section>
-      <div class="input-row">
-        <label for="lineColor">lineColor:</label>
-        <input type="color" id="lineColor">
-      </div>
-      <div class="input-row">
-        <label for="shadowColor">shadowColor:</label>
-        <input type="color" id="shadowColor">
-      </div>
-      <div class="input-row">
-        <label for="shadowBlur">shadowBlur:</label>
-        <input type="range" min="1" max="10" id="shadowBlur">
-      </div>
-    </section>
-    <section>
-      <div class="input-row">
-        <label for="lineColorO">lineColorO:</label>
-        <input type="range" min="0" max="1" step="0.1" id="lineColorO">
-      </div>
-      <div class="input-row">
-        <label for="shadowColorO">shadowColorO:</label>
-        <input type="range" min="0" max="1" step="0.1" id="shadowColorO">
-      </div>
-      <div class="input-row">
-        <label for="isRoundY">isRoundY:</label>
-        <input type="radio" name="isRound" value="1" id="isRoundY">
-      </div>
-      <div class="input-row">
-        <label for="isRoundN">isRoundN:</label>
-        <input type="radio" name="isRound" value="0" id="isRoundN">
-      </div>
-    </section>
-    <i id="setting-close" class="iconfont icon-close1"></i>
-  </div>
-  <div class="container-wrap">
-    <div id="bg" class="bg"></div>
-    <div class="card-wrap">
-      <header class="card-header">
-        <div class="card-header--title">
-          <i class="iconfont icon-music"></i>
-          <span id="song-title">Travel diary</span>
-        </div>
-        <div class="card-header--options">
-          <i id="setting-menu" class="iconfont icon-menu--fill"></i>
-        </div>
-      </header>
-      <main class="card-body">
-        <canvas id="music-canvas"></canvas>
-        <div class="lrc-box">
-          <section id="music-lrc"></section>
-        </div>
-      </main>
-      <aside class="info-widget">
-        <div class="info-list">
-          <dl>
-            <dt>state:</dt>
-            <dd id="info-state">undefined</dd>
-          </dl>
-          <dl>
-            <dt>duration:</dt>
-            <dd id="info-duration">00</dd>
-          </dl>
-          <dl>
-            <dt>currentTime:</dt>
-            <dd id="info-current-time">00</dd>
-          </dl>
-        </div>
-        <div id="info-cover"></div>
-      </aside>
-      <aside class="time-widget">
-        <span id="time-minute">00</span>
-        <span>:</span>
-        <span id="time-second">00</span>
-      </aside>
-      <aside class="control-widget">
-        <div class="control-btn" id="prevBtn">
-          <i class="iconfont icon-play-previous"></i>
-        </div>
-        <div class="control-btn animation" id="playBtn">
-          <i class="iconfont icon-play1"></i>
-        </div>
-        <div class="control-btn" id="nextBtn">
-          <i class="iconfont icon-play-next"></i>
-        </div>
-      </aside>
-    </div>
-  </div>
-  <script src="./js/DomVisual.js"></script>
-  <script src="./js/AudioVisual.js"></script>
-  <script src="./js/index.js"></script>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d0ecb244299cb157a0d3a5aade2b096a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 </body>
+
 </html>
